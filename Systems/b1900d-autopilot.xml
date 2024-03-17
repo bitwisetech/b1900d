@@ -262,13 +262,14 @@
         <config>
             <Kp>0.01</Kp>
             <alpha>0.1</alpha>
-            <!--beta>1.0</beta-->
+            <beta>1.0</beta>
             <!--gamma>0.0</gamma-->
-            <beta>0.10</beta>
+            <!--beta>0.10</beta-->
             <gamma>0.10</gamma>
             <!--Ti>25.0</Ti-->
             <Ti>5.0</Ti>
-            <Td>0.01</Td>
+            <!--Td>0.01</Td-->
+            <Td>1.00001</Td>
             <min>
                 <value>-1.0</value>
             </min>
@@ -565,7 +566,8 @@
             <alpha>0.1</alpha>
             <gamma>0.0</gamma>
             <Ti>10.0</Ti>
-            <Td>0.0001</Td>
+            <!--Td>0.0001</Td-->
+            <Td>0.010000001</Td>
             <u_min>-1</u_min>
             <u_max>1</u_max>
         </config>
@@ -573,7 +575,7 @@
 
     <filter> <!-- Elevator filter -->
       <name>Elevator filter</name>
-      <debug>true</debug>
+      <debug>false</debug>
       <feedback-if-disabled>true</feedback-if-disabled>
       <initialize-to>output</initialize-to>
       <!-- nas file sets vert mode to empty e.g lateral only, HDG   -->
@@ -584,26 +586,18 @@
                 <property>instrumentation/fgc-65/internal/vertical</property>
                 <value>ALT</value>
               </equals>
-            </or>
-            <or>
               <equals>
                 <property>instrumentation/fgc-65/internal/vertical</property>
                 <value>GS</value>
               </equals>
-            </or>
-            <or>
               <equals>
                 <property>instrumentation/fgc-65/internal/vertical</property>
                 <value>IAS</value>
               </equals>
-            </or>
-            <or>
               <equals>
                 <property>instrumentation/fgc-65/internal/vertical</property>
                 <value>PITCH</value>
               </equals>
-            </or>
-            <or>
               <equals>
                 <property>instrumentation/fgc-65/internal/vertical</property>
                 <value>VS</value>
