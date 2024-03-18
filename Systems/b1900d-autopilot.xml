@@ -213,7 +213,7 @@
     <pi-simple-controller> <!-- Roll -->
         <name>Roll</name>
         <debug>false</debug>
-        <!-- f-i-d below alters input term so it is swapped with refr, Kp inverted -->
+        <!-- fdbk-if-dsbld below alters input term so it is swapped with refr, Kp inverted -->
         <feedback-if-disabled>true</feedback-if-disabled>
         <enable>
             <condition>
@@ -249,6 +249,15 @@
     <pid-controller> <!-- Aileron Controller -->
         <name>Aileron Control</name>
         <debug>false</debug>
+        <startup_current>true</startup_current>
+        <enable>
+            <condition>
+                <equals>
+                    <property>instrumentation/fgc-65/app-65a/AP</property>
+                    <value>AP</value>
+                </equals>
+            </condition>
+         </enable>
         <input>
             <property>orientation/roll-deg</property>
         </input>
@@ -263,13 +272,10 @@
             <Kp>0.01</Kp>
             <alpha>0.1</alpha>
             <beta>1.0</beta>
-            <!--gamma>0.0</gamma-->
-            <!--beta>0.10</beta-->
             <gamma>0.10</gamma>
             <!--Ti>25.0</Ti-->
             <Ti>5.0</Ti>
-            <!--Td>0.01</Td-->
-            <Td>1.00001</Td>
+            <Td>0.01</Td>
             <min>
                 <value>-1.0</value>
             </min>
